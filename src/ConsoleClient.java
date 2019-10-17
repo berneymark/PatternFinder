@@ -30,6 +30,10 @@ public class ConsoleClient {
         quitClient();
     }
 
+    private boolean isRunning() {
+        return run;
+    }
+
     private void quitClient() {
         input.close();
         System.out.println("Goodbye!");
