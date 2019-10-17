@@ -19,11 +19,11 @@ public class ConsoleClient {
             System.out.print("Please enter a string: ");
             inputString = input.nextLine();
 
-            System.out.print("Please enter a pattern: ");
-            pattern = input.nextLine();
-
-            if (inputString.equals("QUIT")) {
+            if (inputString.equals("QUIT"))
                 run = false;
+            else {
+                System.out.print("Please enter a pattern: ");
+                pattern = input.nextLine();
             }
         } while (run);
 
