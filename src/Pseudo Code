@@ -4,7 +4,6 @@ FUNCT search(String input, String pattern, int prime)
     pattLen := len of pattern
     inputLen := len of input
 
-    INITIALISE int i and int j
     patternHash := 0
     inputHash := 0
     h := 1
