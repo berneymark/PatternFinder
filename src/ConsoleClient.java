@@ -12,7 +12,8 @@ public class ConsoleClient {
         run = true;
         input = new Scanner(System.in);
 
-        System.out.println("The console will request user input as a string and a pattern which must be found within the input string.\n" +
+        System.out.println("The console will request user input as a string and a " +
+                           "pattern which must be found within the input string.\n" +
                            "Enter 'QUIT' to exit this console app.\n\n");
 
         do {
