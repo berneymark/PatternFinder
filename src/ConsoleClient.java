@@ -2,7 +2,6 @@ import java.util.Scanner;
 
 public class ConsoleClient {
     private boolean run;
-
     private Scanner input;
 
     private String inputString;
