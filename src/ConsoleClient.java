@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class ConsoleClient {
-    private RabinKarp rk = new RabinKarp();
+    private RabinKarp rk = RabinKarp.getInstance();
 
     private boolean run;
     private Scanner input;

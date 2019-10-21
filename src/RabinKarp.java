@@ -1,5 +1,8 @@
 public class RabinKarp {
+    private static RabinKarp instance = new RabinKarp();
     private final static int d = 256;
+
+    private RabinKarp() {}
 
     public void search(String input, String pattern, int prime) {
         int inputLength = input.length();
@@ -49,5 +52,9 @@ public class RabinKarp {
                     inputHash += prime;
             }
         }
+    }
+
+    public static RabinKarp getInstance() {
+        return instance;
     }
 }
