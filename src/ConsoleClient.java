@@ -1,6 +1,8 @@
 import java.util.Scanner;
 
 public class ConsoleClient {
+    private RabinKarp rk = new RabinKarp();
+
     private boolean run;
     private Scanner input;
 
@@ -24,6 +26,8 @@ public class ConsoleClient {
             else {
                 System.out.print("Please enter a pattern: ");
                 pattern = input.nextLine();
+
+                rk.search(inputString, pattern, 101);
             }
         } while (run);
 

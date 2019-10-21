@@ -1,0 +1,41 @@
+FINAL STATIC d := 256 #number of unique characters in set
+
+FUNCT search(String input, String pattern, int prime)
+    pattLen := len of pattern
+    inputLen := len of input
+
+    patternHash := 0
+    inputHash := 0
+    h := 1
+
+    FOR i := 0 up to pattLen - 1
+        h := (h * d) % prime
+    ENDFOR
+    
+    FOR i := 0 up to pattLen
+        patternHash := (patternHash * d + pattern[i]) % prime
+        inputHash := (inputHash * d + inputHash[i]) % prime
+    ENDFOR
+
+    FOR i := 0 to (inputLen - pattLen)
+        IF (patternHash = inputHash)
+            FOR j := 0 up to pattLen - 1
+                IF (input[i + j] NOT EQUAL pattern[j])
+                    BREAK
+                ENDIF
+                
+                IF (j EQUAL pattLen)
+                    PRINT "Pattern found at index " + i
+                ENDIF
+            ENDFOR
+        ENDIF
+
+        IF (i < (inputLen - pattLen))
+            inputHash := (d * (inputHash - input[i] * h) +
+                         input[i + pattLen]) % prime
+            IF (inputHash < 0)
+                inputHash := inputHash + prime
+            ENDIF
+        ENDIF
+    ENDFOR
+ENDFUNCT
