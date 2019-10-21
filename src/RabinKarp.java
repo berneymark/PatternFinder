@@ -1,6 +1,6 @@
 public class RabinKarp {
     private static RabinKarp instance = new RabinKarp();
-    private final static int d = 256;
+    private final static int D = 256;
 
     private RabinKarp() {}
 
@@ -13,14 +13,14 @@ public class RabinKarp {
         int j = 0;
 
         for (int i = 0; i < patternLength - 1; i++)
-            h = (h * d) % prime;
+            h = (h * D) % prime;
 
         /**
          * Calculates hash value of pattern and text.
         **/
         for (int i = 0; i < patternLength; i++) {
-            inputHash = (inputHash * d + input.charAt(i)) % prime;
-            patternHash = (patternHash * d + pattern.charAt(i)) % prime;
+            inputHash = (inputHash * D + input.charAt(i)) % prime;
+            patternHash = (patternHash * D + pattern.charAt(i)) % prime;
         }
 
         /**
@@ -32,8 +32,6 @@ public class RabinKarp {
              * the hash values match then only check for characters on by one.
             **/
             if (patternHash == inputHash) {
-                int charIndex = 0;
-
                 /* Check for characters one by one. */
                 for (j = 0; j < patternLength; j++) {
                     if (input.charAt(i + j) != pattern.charAt(j)) {
@@ -46,7 +44,7 @@ public class RabinKarp {
             }
 
             if (i < inputLength - patternLength) {
-                inputHash = (d * (inputHash - input.charAt(i) * h) +
+                inputHash = (D * (inputHash - input.charAt(i) * h) +
                             input.charAt(i + patternLength)) % prime;
                 if (inputHash < 0)
                     inputHash += prime;
